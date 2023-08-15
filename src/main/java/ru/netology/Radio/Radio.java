@@ -6,6 +6,11 @@ public class Radio {
     private int minRadioStation = 0;
     private int currentRadioStationNumber = minRadioStation;
     private int maximumNumberOfRadioStations = 10;
+
+    private int maxVolume = 100;
+    private int minVolume = 0;
+    private int currentVolume;
+
     public Radio(int currentRadioStationNumber) {
         this.currentRadioStationNumber = currentRadioStationNumber;
 
@@ -17,18 +22,22 @@ public class Radio {
 
 
     public int getCurrentRadioStationNumber() {
+
         return currentRadioStationNumber;
     }
 
     public int getMinRadioStation() {
+
         return minRadioStation;
     }
 
     public int getMaxRadioStation() {
+
         return maxRadioStation;
     }
 
     public int getMaximumNumberOfRadioStations() {
+
         return maximumNumberOfRadioStations;
     }
 
@@ -40,6 +49,14 @@ public class Radio {
             return;
         }
         currentRadioStationNumber = newCurrentRadioStationNumber;
+    }
+
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
+
+    public void setCurrentVolume(int newCurrentVolume) {
+        currentVolume = newCurrentVolume;
     }
 
     public int radioStationNext() {
@@ -60,17 +77,6 @@ public class Radio {
         return currentRadioStationNumber;
     }
 
-    private int currentVolume;
-    private int maxVolume = 100;
-    private int minVolume = 0;
-
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
-
-    public void setCurrentVolume(int newCurrentVolume) {
-        currentVolume = newCurrentVolume;
-    }
 
     public int increaseVolume() {
         if (currentVolume < maxVolume) {
