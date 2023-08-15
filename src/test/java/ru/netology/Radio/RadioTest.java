@@ -9,12 +9,26 @@ public class RadioTest {
 
     @Test
     public void testingNewFunctionalityRadioStation() {
-        Radio radio = new Radio(5);
 
-        Assertions.assertEquals(5, radio.getCurrentRadioStationNumber());
         Assertions.assertEquals(0, radio.getMinRadioStation());
         Assertions.assertEquals(9, radio.getMaxRadioStation());
         Assertions.assertEquals(10, radio.getMaximumNumberOfRadioStations());
+        Assertions.assertEquals(0, radio.getMinVolume());
+        Assertions.assertEquals(100, radio.getMaxVolume());
+
+    }
+
+    @Test
+    public void testOtherOptions() {
+        Radio radio = new Radio(15, 1, 3, 25, 200, 50, 7);
+
+        Assertions.assertEquals(15, radio.getMaxRadioStation());
+        Assertions.assertEquals(1, radio.getMinRadioStation());
+        Assertions.assertEquals(3, radio.getCurrentRadioStationNumber());
+        Assertions.assertEquals(25, radio.getMaximumNumberOfRadioStations());
+        Assertions.assertEquals(200, radio.getMaxVolume());
+        Assertions.assertEquals(50, radio.getMinVolume());
+        Assertions.assertEquals(7, radio.getCurrentVolume());
     }
 
 
