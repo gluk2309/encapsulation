@@ -22,6 +22,10 @@ public class Radio {
     private int minVolume = 0;
     private int currentVolume;
 
+    public Radio(int desiredNumberOfRadioStations) {
+        this.currentRadioStationNumber = desiredNumberOfRadioStations;
+
+    }
 
 
     public void setCurrentRadioStationNumber(int newCurrentRadioStationNumber) {

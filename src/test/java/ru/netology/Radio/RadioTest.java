@@ -9,7 +9,9 @@ public class RadioTest {
 
     @Test
     public void testingNewFunctionalityRadioStation() {
+        Radio radio = new Radio(5);
 
+        Assertions.assertEquals(5, radio.getCurrentRadioStationNumber());
         Assertions.assertEquals(0, radio.getMinRadioStation());
         Assertions.assertEquals(9, radio.getMaxRadioStation());
         Assertions.assertEquals(10, radio.getMaximumNumberOfRadioStations());
