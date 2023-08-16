@@ -7,20 +7,25 @@ public class RadioTest {
 
     Radio radio = new Radio();
     @Test
-    public void newRadio() {
+    public void testMyHomework() {
     Radio radio = new Radio(20);
 
         radio.setCurrentRadioStationNumber(15);
 
         Assertions.assertEquals(15, radio.getCurrentRadioStationNumber());
+        Assertions.assertEquals(0, radio.getMinRadioStation());
+        Assertions.assertEquals(20, radio.getMaxRadioStation());
     }
+
     @Test
     public void testingNewFunctionalityRadioStation() {
         Radio radio = new Radio(5);
 
-        Assertions.assertEquals(5, radio.getCurrentRadioStationNumber());
+        radio.setCurrentRadioStationNumber(3);
+
+        Assertions.assertEquals(3, radio.getCurrentRadioStationNumber());
         Assertions.assertEquals(0, radio.getMinRadioStation());
-        Assertions.assertEquals(9, radio.getMaxRadioStation());
+        Assertions.assertEquals(5, radio.getMaxRadioStation());
         Assertions.assertEquals(10, radio.getMaximumNumberOfRadioStations());
     }
 
