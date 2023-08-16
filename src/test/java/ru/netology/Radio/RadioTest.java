@@ -5,9 +5,38 @@ import org.junit.jupiter.api.Test;
 
 public class RadioTest {
 
+    Radio radio = new Radio();
+
+    @Test
+    public void testingNewFunctionalityRadioStation() {
+        Radio radio = new Radio(5);
+
+        Assertions.assertEquals(5, radio.getCurrentRadioStationNumber());
+        Assertions.assertEquals(0, radio.getMinRadioStation());
+        Assertions.assertEquals(9, radio.getMaxRadioStation());
+        Assertions.assertEquals(10, radio.getMaximumNumberOfRadioStations());
+        Assertions.assertEquals(0, radio.getMinVolume());
+        Assertions.assertEquals(100, radio.getMaxVolume());
+
+    }
+
+    @Test
+    public void testOtherOptions() {
+        Radio radio = new Radio(15, 1, 3, 25, 200, 50, 7);
+
+        Assertions.assertEquals(15, radio.getMaxRadioStation());
+        Assertions.assertEquals(1, radio.getMinRadioStation());
+        Assertions.assertEquals(3, radio.getCurrentRadioStationNumber());
+        Assertions.assertEquals(25, radio.getMaximumNumberOfRadioStations());
+        Assertions.assertEquals(200, radio.getMaxVolume());
+        Assertions.assertEquals(50, radio.getMinVolume());
+        Assertions.assertEquals(7, radio.getCurrentVolume());
+    }
+
+
     @Test
     public void nextRadioStationFromZero() {
-        Radio radio = new Radio();
+
         radio.setCurrentRadioStationNumber(0);
 
         radio.radioStationNext();
@@ -20,7 +49,7 @@ public class RadioTest {
 
     @Test
     public void nextRadioStationNegativeValue() {
-        Radio radio = new Radio();
+
         radio.setCurrentRadioStationNumber(-1);
 
         radio.radioStationNext();
@@ -32,7 +61,7 @@ public class RadioTest {
 
     @Test
     public void nextRadioStationIncreasedValue() {
-        Radio radio = new Radio();
+
         radio.setCurrentRadioStationNumber(10);
 
         radio.radioStationNext();
@@ -44,7 +73,7 @@ public class RadioTest {
 
     @Test
     public void nextRadioStationUpperBound() {
-        Radio radio = new Radio();
+
         radio.setCurrentRadioStationNumber(9);
 
         radio.radioStationNext();
@@ -56,7 +85,7 @@ public class RadioTest {
 
     @Test
     public void nextRadioStationEquivalent() {
-        Radio radio = new Radio();
+
         radio.setCurrentRadioStationNumber(5);
 
         radio.radioStationNext();
@@ -69,7 +98,7 @@ public class RadioTest {
 
     @Test
     public void prevRadioStationFromZero() {
-        Radio radio = new Radio();
+
         radio.setCurrentRadioStationNumber(0);
 
         radio.radioStationPrev();
@@ -81,7 +110,7 @@ public class RadioTest {
 
     @Test
     public void prevRadioStationNegativeValue() {
-        Radio radio = new Radio();
+
         radio.setCurrentRadioStationNumber(-1);
 
         radio.radioStationPrev();
@@ -93,7 +122,7 @@ public class RadioTest {
 
     @Test
     public void prevRadioStationIncreasedValue() {
-        Radio radio = new Radio();
+
         radio.setCurrentRadioStationNumber(10);
 
         radio.radioStationPrev();
@@ -105,7 +134,7 @@ public class RadioTest {
 
     @Test
     public void prevRadioStationDecreaseFromMax() {
-        Radio radio = new Radio();
+
         radio.setCurrentRadioStationNumber(9);
 
         radio.radioStationPrev();
@@ -117,7 +146,7 @@ public class RadioTest {
 
     @Test
     public void prevRadioStationEquivalent() {
-        Radio radio = new Radio();
+
         radio.setCurrentRadioStationNumber(5);
 
         radio.radioStationPrev();
@@ -130,7 +159,7 @@ public class RadioTest {
 
     @Test
     public void nextVolumeUp() {
-        Radio radio = new Radio();
+
         radio.setCurrentVolume(0);
 
         radio.increaseVolume();
@@ -143,7 +172,7 @@ public class RadioTest {
 
     @Test
     public void nextVolumeEquivalent() {
-        Radio radio = new Radio();
+
         radio.setCurrentVolume(1);
 
         radio.increaseVolume();
@@ -156,7 +185,7 @@ public class RadioTest {
 
     @Test
     public void nextVolumeNegative() {
-        Radio radio = new Radio();
+
         radio.setCurrentVolume(-1);
 
         radio.increaseVolume();
@@ -169,7 +198,7 @@ public class RadioTest {
 
     @Test
     public void nextVolumeIncreasedValue() {
-        Radio radio = new Radio();
+
         radio.setCurrentVolume(101);
 
         radio.increaseVolume();
@@ -182,7 +211,7 @@ public class RadioTest {
 
     @Test
     public void nextVolumeUpperBound() {
-        Radio radio = new Radio();
+
         radio.setCurrentVolume(100);
 
         radio.increaseVolume();
@@ -194,11 +223,9 @@ public class RadioTest {
     }
 
 
-
-
     @Test
     public void prevVolumeUp() {
-        Radio radio = new Radio();
+
         radio.setCurrentVolume(0);
 
         radio.reduceVolume();
@@ -211,7 +238,7 @@ public class RadioTest {
 
     @Test
     public void prevVolumeEquivalent() {
-        Radio radio = new Radio();
+
         radio.setCurrentVolume(3);
 
         radio.reduceVolume();
@@ -224,7 +251,7 @@ public class RadioTest {
 
     @Test
     public void prevVolumeNegative() {
-        Radio radio = new Radio();
+
         radio.setCurrentVolume(-1);
 
         radio.reduceVolume();
@@ -237,7 +264,7 @@ public class RadioTest {
 
     @Test
     public void prevVolumeIncreasedValue() {
-        Radio radio = new Radio();
+
         radio.setCurrentVolume(101);
 
         radio.reduceVolume();
@@ -250,7 +277,7 @@ public class RadioTest {
 
     @Test
     public void prevVolumeUpperBound() {
-        Radio radio = new Radio();
+
         radio.setCurrentVolume(100);
 
         radio.reduceVolume();
