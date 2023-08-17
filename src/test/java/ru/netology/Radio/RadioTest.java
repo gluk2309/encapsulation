@@ -6,16 +6,37 @@ import org.junit.jupiter.api.Test;
 public class RadioTest {
 
     Radio radio = new Radio();
+
     @Test
     public void testMyHomework() {
-    Radio radio = new Radio(20);
+        Radio radio = new Radio(20);
 
-        radio.setCurrentRadioStationNumber(15);
+        radio.setCurrentRadioStationNumber(8);
 
-        Assertions.assertEquals(15, radio.getCurrentRadioStationNumber());
+        Assertions.assertEquals(8, radio.getCurrentRadioStationNumber());
         Assertions.assertEquals(0, radio.getMinRadioStation());
-        Assertions.assertEquals(20, radio.getMaxRadioStation());
+        Assertions.assertEquals(19, radio.getMaxRadioStation());
+        Assertions.assertEquals(20, radio.getMaximumNumberOfRadioStations());
     }
+
+    @Test
+    public void testConstructor() {
+        Radio radio = new Radio(20);
+
+        radio.setCurrentRadioStationNumber(0);
+
+        Assertions.assertEquals(0, radio.getCurrentRadioStationNumber());
+    }
+
+    @Test
+    public void testConstructorNegative() {
+        Radio radio = new Radio(20);
+
+        radio.setCurrentRadioStationNumber(-1);
+
+        Assertions.assertEquals(0, radio.getCurrentRadioStationNumber());
+    }
+
 
     @Test
     public void testingNewFunctionalityRadioStation() {
@@ -25,8 +46,8 @@ public class RadioTest {
 
         Assertions.assertEquals(3, radio.getCurrentRadioStationNumber());
         Assertions.assertEquals(0, radio.getMinRadioStation());
-        Assertions.assertEquals(5, radio.getMaxRadioStation());
-        Assertions.assertEquals(10, radio.getMaximumNumberOfRadioStations());
+        Assertions.assertEquals(4, radio.getMaxRadioStation());
+        Assertions.assertEquals(5, radio.getMaximumNumberOfRadioStations());
     }
 
 

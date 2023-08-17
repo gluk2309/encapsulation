@@ -12,8 +12,9 @@ public class Radio {
     private int currentVolume;
 
     public Radio(int desiredNumberOfRadioStations) {
+        this.maximumNumberOfRadioStations = desiredNumberOfRadioStations;
         this.minRadioStation = getMinRadioStation();
-        this.maxRadioStation = desiredNumberOfRadioStations;
+        this.maxRadioStation = maximumNumberOfRadioStations - 1;
         this.currentRadioStationNumber = getCurrentRadioStationNumber();
 
     }
